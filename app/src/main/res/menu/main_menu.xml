@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/shopManagementFragment"
+        android:title="管理店家"
+        android:icon="@drawable/img_shop"/>
+    <item
+        android:id="@+id/deliveryManagementFragment"
+        android:title="管理外送員"
+        android:icon="@drawable/img_motorcycle"/>
+    <item
+        android:id="@+id/memberManagementFragment"
+        android:title="管理會員"
+        android:icon="@drawable/img_member"/>
+</menu>

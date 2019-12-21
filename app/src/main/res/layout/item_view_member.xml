@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:padding="10dp"
+    card_view:cardBackgroundColor="#ffdddddd"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/ivMember"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/icon_member"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ivMember"
+            android:text="會員名稱："
+            card_view:layout_constraintBottom_toTopOf="@+id/tvMemberPhone"
+            card_view:layout_constraintStart_toEndOf="@+id/ivMember" />
+
+        <TextView
+            android:id="@+id/tvMemberName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/tvNameTitle"
+            android:text="Member Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            card_view:layout_constraintBottom_toTopOf="@+id/tvMemberPhone"
+            card_view:layout_constraintStart_toEndOf="@+id/tvNameTitle" />
+
+        <TextView
+            android:id="@+id/tvPhoneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ivMember"
+            android:text="會員電話："
+            card_view:layout_constraintTop_toBottomOf="@+id/tvNameTitle"
+            card_view:layout_constraintStart_toEndOf="@+id/ivMember" />
+
+        <TextView
+            android:id="@+id/tvMemberPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvMemberName"
+            android:layout_alignStart="@id/tvMemberName"
+            android:layout_marginStart="8dp"
+            android:text="Member Phone"
+            android:textColor="#000000"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/tvPhoneTitle"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEmailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ivMember"
+            android:text="電子信箱："
+            card_view:layout_constraintTop_toBottomOf="@+id/tvPhoneTitle"
+            card_view:layout_constraintStart_toEndOf="@+id/ivMember" />
+
+        <TextView
+            android:id="@+id/tvMemberEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvMemberPhone"
+            android:layout_alignStart="@id/tvMemberName"
+            android:layout_marginStart="8dp"
+            android:textColor="#000000"
+            android:text="Member Email"
+            card_view:layout_constraintStart_toEndOf="@+id/tvEmailTitle"
+            card_view:layout_constraintTop_toBottomOf="@+id/tvMemberPhone" />
+
+        <TextView
+            android:id="@+id/tvMemberStateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="狀態："
+            card_view:layout_constraintEnd_toStartOf="@+id/tvMemberState"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMemberState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Member State"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMemberId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/shopManagementFragment">
+    <fragment
+        android:id="@+id/shopManagementFragment"
+        android:name="tw.dp103g3.itfood_backside.ShopManagementFragment"
+        android:label="fragment_shop_management"
+        tools:layout="@layout/fragment_shop_management"/>
+    <fragment
+        android:id="@+id/deliveryManagementFragment"
+        android:name="tw.dp103g3.itfood_backside.DeliveryManagementFragment"
+        android:label="fragment_delivery_management"
+        tools:layout="@layout/fragment_delivery_management" />
+    <fragment
+        android:id="@+id/memberManagementFragment"
+        android:name="tw.dp103g3.itfood_backside.MemberManagementFragment"
+        android:label="fragment_member_management"
+        tools:layout="@layout/fragment_member_management">
+        <action
+            android:id="@+id/action_memberManagementFragment_to_memberDetailFragment"
+            app:destination="@id/memberDetailFragment" />
+        <action
+            android:id="@+id/action_memberManagementFragment_to_memberUpdateFragment"
+            app:destination="@id/memberUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberDetailFragment"
+        android:name="tw.dp103g3.itfood_backside.MemberDetailFragment"
+        android:label="fragment_member_detail"
+        tools:layout="@layout/fragment_member_detail" />
+    <fragment
+        android:id="@+id/memberUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.MemberUpdateFragment"
+        android:label="fragment_member_update"
+        tools:layout="@layout/fragment_member_update" />
+</navigation>

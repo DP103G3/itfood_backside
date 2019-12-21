@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">itfood_backside</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textNoMembersFound">No Members Found !</string>
+    <string name="textNoNetwork">No Network !</string>
+    <string name="textDeleteFail">Delete Fail</string>
+    <string name="textDeleteSuccess">Delete Success</string>
+    <string name="textUpdate">Update</string>
+    <string name="textDelete">Delete</string>
+    <string name="textMemberPageTitle">會員管理</string>
+    <string name="textDeliveryPageTitle">外送員管理</string>
+    <string name="textShopPageTitle">店家管理</string>
+    <string name="textMemberDetailPageTitle">會員資料</string>
+    <string name="textInsertTitle">新增用戶</string>
+    <string name="textPickPicture">選取照片</string>
+    <string name="textTakePicture">拍張照片</string>
+    <string name="textBookName">用戶名稱</string>
+    <string-array name="textStateArray">
+    <item>全部會員</item>
+    <item>有效會員</item>
+    <item>停權會員</item>
+    </string-array>
 </resources>
