@@ -8,7 +8,14 @@
         android:id="@+id/shopManagementFragment"
         android:name="tw.dp103g3.itfood_backside.ShopManagementFragment"
         android:label="fragment_shop_management"
-        tools:layout="@layout/fragment_shop_management"/>
+        tools:layout="@layout/fragment_shop_management">
+        <action
+            android:id="@+id/action_shopManagementFragment_to_shopUpdateFragment"
+            app:destination="@id/shopUpdateFragment" />
+        <action
+            android:id="@+id/action_shopManagementFragment_to_shopDetailFragment"
+            app:destination="@id/shopDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/deliveryManagementFragment"
         android:name="tw.dp103g3.itfood_backside.DeliveryManagementFragment"
@@ -36,4 +43,14 @@
         android:name="tw.dp103g3.itfood_backside.MemberUpdateFragment"
         android:label="fragment_member_update"
         tools:layout="@layout/fragment_member_update" />
+    <fragment
+        android:id="@+id/shopUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.ShopUpdateFragment"
+        android:label="fragment_shop_update"
+        tools:layout="@layout/fragment_shop_update" />
+    <fragment
+        android:id="@+id/shopDetailFragment"
+        android:name="tw.dp103g3.itfood_backside.ShopDetailFragment"
+        android:label="fragment_shop_detail"
+        tools:layout="@layout/fragment_shop_detail" />
 </navigation>

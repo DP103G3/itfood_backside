@@ -15,9 +15,5 @@
     <string name="textPickPicture">選取照片</string>
     <string name="textTakePicture">拍張照片</string>
     <string name="textBookName">用戶名稱</string>
-    <string-array name="textStateArray">
-    <item>全部會員</item>
-    <item>有效會員</item>
-    <item>停權會員</item>
-    </string-array>
+    <string name="textShopDetailPageTitle">商家資料</string>
 </resources>

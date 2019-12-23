@@ -1,6 +1,5 @@
 package tw.dp103g3.itfood_backside;
 
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +17,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -67,7 +67,6 @@ public class MemberManagementFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         activity.setTitle(R.string.textMemberPageTitle);
-
         return inflater.inflate(R.layout.fragment_member_management, container, false);
     }
 
@@ -78,7 +77,7 @@ public class MemberManagementFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SearchView searchView = view.findViewById(R.id.searchView);
+        final SearchView searchView = view.findViewById(R.id.searchView);
         rvMember = view.findViewById(R.id.rvMember);
         rvMember.setLayoutManager(new LinearLayoutManager(activity));
         tvShowAll = view.findViewById(R.id.tvShowAll);
@@ -90,12 +89,46 @@ public class MemberManagementFragment extends Fragment {
         showMembers(members);
 
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // 如果搜尋條件為空字串，就顯示原始資料；否則就顯示搜尋後結果
+                if (newText.isEmpty()) {
+                    showMembers(members);
+                    tvListTitle.setText("所有會員");
+                    tvShowAll.setTextColor(Color.RED);
+                    tvEffective.setTextColor(Color.BLACK);
+                    tvLapse.setTextColor(Color.BLACK);
+                } else {
+                    List<Member> searchMembers = new ArrayList<>();
+                    // 搜尋原始資料內有無包含關鍵字(不區別大小寫)
+                    for (Member member : members) {
+                        if (member.getMemName().toUpperCase().contains(newText.toUpperCase())) {
+                            searchMembers.add(member);
+                        }
+                    }
+                    showMembers(searchMembers);
+                    tvListTitle.setText(null);
+                    tvShowAll.setTextColor(Color.BLACK);
+                    tvEffective.setTextColor(Color.BLACK);
+                    tvLapse.setTextColor(Color.BLACK);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+        });
+
         tvShowAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvShowAll.setTextColor(Color.RED);
                 tvEffective.setTextColor(Color.BLACK);
                 tvLapse.setTextColor(Color.BLACK);
+                searchView.setQuery("",false);
                 showMembers(members);
                 tvListTitle.setText("所有會員");
             }
@@ -139,36 +172,6 @@ public class MemberManagementFragment extends Fragment {
             }
         });
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // 如果搜尋條件為空字串，就顯示原始資料；否則就顯示搜尋後結果
-                if (newText.isEmpty()) {
-                    showMembers(members);
-                    tvListTitle.setText("所有會員");
-                    tvShowAll.setTextColor(Color.RED);
-                } else {
-                    List<Member> searchMembers = new ArrayList<>();
-                    // 搜尋原始資料內有無包含關鍵字(不區別大小寫)
-                    for (Member member : members) {
-                        if (member.getMemName().toUpperCase().contains(newText.toUpperCase())) {
-                            searchMembers.add(member);
-                        }
-                    }
-                    showMembers(searchMembers);
-                    tvListTitle.setText(null);
-                    tvShowAll.setTextColor(Color.BLACK);
-                    tvEffective.setTextColor(Color.BLACK);
-                    tvLapse.setTextColor(Color.BLACK);
-                }
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-        });
     }
 
 

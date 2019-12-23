@@ -2,7 +2,6 @@ package tw.dp103g3.itfood_backside;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Formattable;
 
 public class Member implements Serializable {
 	private int mem_id;

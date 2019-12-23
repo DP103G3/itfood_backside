@@ -18,9 +18,6 @@
         <activity
             android:allowBackup="false"
             android:name=".MainPageActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainPageActivity" />
         </activity>
 
         <activity android:name=".MainActivity">
