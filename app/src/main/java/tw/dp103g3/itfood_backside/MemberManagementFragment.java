@@ -179,7 +179,7 @@ public class MemberManagementFragment extends Fragment {
     private List<Member> getMembers() {
         List<Member> members = null;
         if (Common.networkConnected(activity)) {
-            String url = Common.URL + "MemberServlet";
+            String url = Common.URL + "/MemberServlet";
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("action", "getAll");
             String jsonOut = jsonObject.toString();
@@ -258,7 +258,7 @@ public class MemberManagementFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
             final Member member = members.get(position);
-            String url = Common.URL + "MemberServlet";
+            String url = Common.URL + "/MemberServlet";
             int id = member.getMemId();
             memberImageTask = new MemberImageTask(url, id, imageSize, myViewHolder.ivMember);
             memberImageTask.execute();

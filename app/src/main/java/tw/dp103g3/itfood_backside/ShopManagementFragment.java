@@ -171,7 +171,7 @@ public class ShopManagementFragment extends Fragment {
     private List<Shop> getShops() {
         List<Shop> shops = null;
         if (Common.networkConnected(activity)) {
-            String url = Common.URL + "ShopServlet";
+            String url = Common.URL + "/ShopServlet";
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("action", "getAll");
             String jsonOut = jsonObject.toString();
