@@ -6,7 +6,7 @@
     app:startDestination="@id/shopManagementFragment">
     <fragment
         android:id="@+id/shopManagementFragment"
-        android:name="tw.dp103g3.itfood_backside.ShopManagementFragment"
+        android:name="tw.dp103g3.itfood_backside.shop.ShopManagementFragment"
         android:label="fragment_shop_management"
         tools:layout="@layout/fragment_shop_management">
         <action
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/deliveryManagementFragment"
-        android:name="tw.dp103g3.itfood_backside.DeliveryManagementFragment"
+        android:name="tw.dp103g3.itfood_backside.delivery.DeliveryManagementFragment"
         android:label="fragment_delivery_management"
         tools:layout="@layout/fragment_delivery_management" />
     <fragment
         android:id="@+id/memberManagementFragment"
-        android:name="tw.dp103g3.itfood_backside.MemberManagementFragment"
+        android:name="tw.dp103g3.itfood_backside.member.MemberManagementFragment"
         android:label="fragment_member_management"
         tools:layout="@layout/fragment_member_management">
         <action
@@ -35,22 +35,22 @@
     </fragment>
     <fragment
         android:id="@+id/memberDetailFragment"
-        android:name="tw.dp103g3.itfood_backside.MemberDetailFragment"
+        android:name="tw.dp103g3.itfood_backside.member.MemberDetailFragment"
         android:label="fragment_member_detail"
         tools:layout="@layout/fragment_member_detail" />
     <fragment
         android:id="@+id/memberUpdateFragment"
-        android:name="tw.dp103g3.itfood_backside.MemberUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.member.MemberUpdateFragment"
         android:label="fragment_member_update"
         tools:layout="@layout/fragment_member_update" />
     <fragment
         android:id="@+id/shopUpdateFragment"
-        android:name="tw.dp103g3.itfood_backside.ShopUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.shop.ShopUpdateFragment"
         android:label="fragment_shop_update"
         tools:layout="@layout/fragment_shop_update" />
     <fragment
         android:id="@+id/shopDetailFragment"
-        android:name="tw.dp103g3.itfood_backside.ShopDetailFragment"
+        android:name="tw.dp103g3.itfood_backside.shop.ShopDetailFragment"
         android:label="fragment_shop_detail"
         tools:layout="@layout/fragment_shop_detail" />
 </navigation>

@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import tw.dp103g3.itfood_backside.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button btLogin;

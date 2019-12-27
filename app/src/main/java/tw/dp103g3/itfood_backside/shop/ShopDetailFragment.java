@@ -1,9 +1,7 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.shop;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +17,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.R;
+import tw.dp103g3.itfood_backside.Url;
 import tw.dp103g3.itfood_backside.task.ShopImageTask;
 
 
@@ -67,7 +68,7 @@ public class ShopDetailFragment extends Fragment {
         showShop();
     }
     private void showShop() {
-        String url = Common.URL + "ShopServlet";
+        String url = Url.URL + "ShopServlet";
         int id = shop.getId();
         int imageSize = getResources().getDisplayMetrics().widthPixels / 3;
         Bitmap bitmap = null;

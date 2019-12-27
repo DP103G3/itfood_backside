@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.member;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -17,18 +17,13 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.SearchView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -37,6 +32,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.R;
+import tw.dp103g3.itfood_backside.Url;
 import tw.dp103g3.itfood_backside.task.CommonTask;
 import tw.dp103g3.itfood_backside.task.MemberImageTask;
 
@@ -51,16 +49,11 @@ public class MemberManagementFragment extends Fragment {
     private List<Member> members;
     private TextView tvLapse,tvEffective,tvShowAll,tvListTitle;
 
-
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activity = getActivity();
-
     }
-
 
     @Nullable
     @Override
@@ -69,10 +62,6 @@ public class MemberManagementFragment extends Fragment {
         activity.setTitle(R.string.textMemberPageTitle);
         return inflater.inflate(R.layout.fragment_member_management, container, false);
     }
-
-
-
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -87,7 +76,6 @@ public class MemberManagementFragment extends Fragment {
         tvShowAll.setTextColor(Color.RED);
         members = getMembers();
         showMembers(members);
-
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -115,7 +103,6 @@ public class MemberManagementFragment extends Fragment {
                 }
                 return true;
             }
-
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -174,12 +161,11 @@ public class MemberManagementFragment extends Fragment {
 
     }
 
-
     @SuppressLint("LongLogTag")
     private List<Member> getMembers() {
         List<Member> members = null;
         if (Common.networkConnected(activity)) {
-            String url = Common.URL + "/MemberServlet";
+            String url = Url.URL + "/MemberServlet";
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("action", "getAll");
             String jsonOut = jsonObject.toString();
@@ -258,7 +244,7 @@ public class MemberManagementFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
             final Member member = members.get(position);
-            String url = Common.URL + "/MemberServlet";
+            String url = Url.URL + "/MemberServlet";
             int id = member.getMemId();
             memberImageTask = new MemberImageTask(url, id, imageSize, myViewHolder.ivMember);
             memberImageTask.execute();
@@ -293,7 +279,7 @@ public class MemberManagementFragment extends Fragment {
                                     break;
                                 case R.id.delete:
                                     if (Common.networkConnected(activity)) {
-                                        String url = Common.URL + "/MemberServlet";
+                                        String url = Url.URL + "/MemberServlet";
                                         JsonObject jsonObject = new JsonObject();
                                         jsonObject.addProperty("action", "memberDelete");
                                         jsonObject.addProperty("memberId", member.getMemId());

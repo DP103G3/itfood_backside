@@ -17,10 +17,10 @@
 
         <activity
             android:allowBackup="false"
-            android:name=".MainPageActivity">
+            android:name=".main.MainPageActivity">
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

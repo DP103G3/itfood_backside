@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.member;
 
 
 import android.os.Bundle;
@@ -9,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import tw.dp103g3.itfood_backside.R;
 
 
-public class ShopUpdateFragment extends Fragment {
+
+public class MemberUpdateFragment extends Fragment {
 
 
-    public ShopUpdateFragment() {
+    public MemberUpdateFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class ShopUpdateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop_update, container, false);
+        return inflater.inflate(R.layout.fragment_member_update, container, false);
     }
 
 }

@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.member;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -18,6 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.R;
+import tw.dp103g3.itfood_backside.Url;
 import tw.dp103g3.itfood_backside.task.MemberImageTask;
 
 
@@ -66,7 +69,7 @@ public class MemberDetailFragment extends Fragment {
         showMember();
     }
     private void showMember() {
-        String url = Common.URL + "BookServlet";
+        String url = Url.URL + "BookServlet";
         int id = member.getMemId();
         int imageSize = getResources().getDisplayMetrics().widthPixels / 3;
         Bitmap bitmap = null;

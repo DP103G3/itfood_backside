@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.member;
 
 import java.io.Serializable;
 import java.util.Date;

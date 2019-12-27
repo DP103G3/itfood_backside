@@ -1,7 +1,6 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.shop;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 public class Shop implements Serializable {

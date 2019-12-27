@@ -7,7 +7,7 @@
     android:baselineAligned="false"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
 <Button
     android:id="@+id/btLogin"

@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside;
+package tw.dp103g3.itfood_backside.shop;
 
 
 import android.annotation.SuppressLint;
@@ -29,15 +29,16 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import tw.dp103g3.itfood_backside.Common;
 import tw.dp103g3.itfood_backside.R;
+import tw.dp103g3.itfood_backside.Url;
 import tw.dp103g3.itfood_backside.task.CommonTask;
-import tw.dp103g3.itfood_backside.task.MemberImageTask;
 import tw.dp103g3.itfood_backside.task.ShopImageTask;
+
 
 
 public class ShopManagementFragment extends Fragment {
@@ -171,7 +172,7 @@ public class ShopManagementFragment extends Fragment {
     private List<Shop> getShops() {
         List<Shop> shops = null;
         if (Common.networkConnected(activity)) {
-            String url = Common.URL + "/ShopServlet";
+            String url = Url.URL + "/ShopServlet";
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("action", "getAll");
             String jsonOut = jsonObject.toString();
@@ -250,7 +251,7 @@ public class ShopManagementFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull ShopManagementFragment.ShopAdapter.MyViewHolder myViewHolder, int position) {
             final Shop shop = shops.get(position);
-            String url = Common.URL + "ShopServlet";
+            String url = Url.URL + "ShopServlet";
             int id = shop.getId();
             shopImageTask = new ShopImageTask(url, id, imageSize, myViewHolder.ivMember);
             shopImageTask.execute();
@@ -285,7 +286,7 @@ public class ShopManagementFragment extends Fragment {
                                     break;
                                 case R.id.delete:
                                     if (Common.networkConnected(activity)) {
-                                        String url = Common.URL + "/ShopServlet";
+                                        String url = Url.URL + "/ShopServlet";
                                         JsonObject jsonObject = new JsonObject();
                                         jsonObject.addProperty("action", "shopDelete");
                                         jsonObject.addProperty("shopId", shop.getId());

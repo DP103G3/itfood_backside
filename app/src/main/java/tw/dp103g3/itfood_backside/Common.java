@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 public class Common {
 
-    public static final String URL = "http://192.168.43.158:8080/Itfood_Web";
-
     public static boolean networkConnected(Activity activity) {
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
