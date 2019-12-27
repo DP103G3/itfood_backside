@@ -58,7 +58,7 @@ public class MemberDetailFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
         Bundle bundle = getArguments();
         if (bundle == null || bundle.getSerializable("member") == null) {
-            Common.showToast(activity, R.string.textNoMembersFound);
+            Common.ShowToast(activity, R.string.textNoMembersFound);
             navController.popBackStack();
             return;
         }
@@ -66,7 +66,7 @@ public class MemberDetailFragment extends Fragment {
         showMember();
     }
     private void showMember() {
-        String url = Common.URL_SERVER + "BookServlet";
+        String url = Common.URL + "BookServlet";
         int id = member.getMemId();
         int imageSize = getResources().getDisplayMetrics().widthPixels / 3;
         Bitmap bitmap = null;

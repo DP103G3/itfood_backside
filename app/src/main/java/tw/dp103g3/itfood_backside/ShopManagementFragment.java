@@ -171,7 +171,7 @@ public class ShopManagementFragment extends Fragment {
     private List<Shop> getShops() {
         List<Shop> shops = null;
         if (Common.networkConnected(activity)) {
-            String url = Common.URL_SERVER + "ShopServlet";
+            String url = Common.URL + "ShopServlet";
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("action", "getAll");
             String jsonOut = jsonObject.toString();
@@ -185,14 +185,14 @@ public class ShopManagementFragment extends Fragment {
                 Log.e(TAG, e.toString());
             }
         } else {
-            Common.showToast(activity, R.string.textNoNetwork);
+            Common.ShowToast(activity, R.string.textNoNetwork);
         }
         return shops;
     }
 
     private void showShops(List<Shop> shops) {
         if (shops == null || shops.isEmpty()) {
-            Common.showToast(activity, R.string.textNoMembersFound);
+            Common.ShowToast(activity, R.string.textNoMembersFound);
 
         }
         ShopManagementFragment.ShopAdapter shopAdapter = (ShopManagementFragment.ShopAdapter) rvMember.getAdapter();
@@ -250,7 +250,7 @@ public class ShopManagementFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull ShopManagementFragment.ShopAdapter.MyViewHolder myViewHolder, int position) {
             final Shop shop = shops.get(position);
-            String url = Common.URL_SERVER + "ShopServlet";
+            String url = Common.URL + "ShopServlet";
             int id = shop.getId();
             shopImageTask = new ShopImageTask(url, id, imageSize, myViewHolder.ivMember);
             shopImageTask.execute();
@@ -285,7 +285,7 @@ public class ShopManagementFragment extends Fragment {
                                     break;
                                 case R.id.delete:
                                     if (Common.networkConnected(activity)) {
-                                        String url = Common.URL_SERVER + "/ShopServlet";
+                                        String url = Common.URL + "/ShopServlet";
                                         JsonObject jsonObject = new JsonObject();
                                         jsonObject.addProperty("action", "shopDelete");
                                         jsonObject.addProperty("shopId", shop.getId());
@@ -298,16 +298,16 @@ public class ShopManagementFragment extends Fragment {
                                             Log.e(TAG, e.toString());
                                         }
                                         if (count == 0) {
-                                            Common.showToast(activity, R.string.textDeleteFail);
+                                            Common.ShowToast(activity, R.string.textDeleteFail);
                                         } else {
                                             shops.remove(shop);
                                             ShopManagementFragment.ShopAdapter.this.notifyDataSetChanged();
                                             // 外面spots也必須移除選取的spot
                                             ShopManagementFragment.this.shops.remove(shop);
-                                            Common.showToast(activity, R.string.textDeleteSuccess);
+                                            Common.ShowToast(activity, R.string.textDeleteSuccess);
                                         }
                                     } else {
-                                        Common.showToast(activity, R.string.textNoNetwork);
+                                        Common.ShowToast(activity, R.string.textNoNetwork);
                                     }
                             }
                             return true;

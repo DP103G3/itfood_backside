@@ -179,7 +179,7 @@ public class MemberManagementFragment extends Fragment {
     private List<Member> getMembers() {
         List<Member> members = null;
         if (Common.networkConnected(activity)) {
-            String url = Common.URL_SERVER + "MemberServlet";
+            String url = Common.URL + "MemberServlet";
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("action", "getAll");
             String jsonOut = jsonObject.toString();
@@ -193,14 +193,14 @@ public class MemberManagementFragment extends Fragment {
                 Log.e(TAG, e.toString());
             }
         } else {
-            Common.showToast(activity, R.string.textNoNetwork);
+            Common.ShowToast(activity, R.string.textNoNetwork);
         }
         return members;
     }
 
     private void showMembers(List<Member> members) {
         if (members == null || members.isEmpty()) {
-            Common.showToast(activity, R.string.textNoMembersFound);
+            Common.ShowToast(activity, R.string.textNoMembersFound);
 
         }
        MemberAdapter memberAdapter = (MemberAdapter) rvMember.getAdapter();
@@ -258,7 +258,7 @@ public class MemberManagementFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
             final Member member = members.get(position);
-            String url = Common.URL_SERVER + "MemberServlet";
+            String url = Common.URL + "MemberServlet";
             int id = member.getMemId();
             memberImageTask = new MemberImageTask(url, id, imageSize, myViewHolder.ivMember);
             memberImageTask.execute();
@@ -293,7 +293,7 @@ public class MemberManagementFragment extends Fragment {
                                     break;
                                 case R.id.delete:
                                     if (Common.networkConnected(activity)) {
-                                        String url = Common.URL_SERVER + "/MemberServlet";
+                                        String url = Common.URL + "/MemberServlet";
                                         JsonObject jsonObject = new JsonObject();
                                         jsonObject.addProperty("action", "memberDelete");
                                         jsonObject.addProperty("memberId", member.getMemId());
@@ -306,16 +306,16 @@ public class MemberManagementFragment extends Fragment {
                                             Log.e(TAG, e.toString());
                                         }
                                         if (count == 0) {
-                                            Common.showToast(activity, R.string.textDeleteFail);
+                                            Common.ShowToast(activity, R.string.textDeleteFail);
                                         } else {
                                             members.remove(member);
                                             MemberAdapter.this.notifyDataSetChanged();
                                             // 外面spots也必須移除選取的spot
                                             MemberManagementFragment.this.members.remove(member);
-                                            Common.showToast(activity, R.string.textDeleteSuccess);
+                                            Common.ShowToast(activity, R.string.textDeleteSuccess);
                                         }
                                     } else {
-                                        Common.showToast(activity, R.string.textNoNetwork);
+                                        Common.ShowToast(activity, R.string.textNoNetwork);
                                     }
                             }
                             return true;

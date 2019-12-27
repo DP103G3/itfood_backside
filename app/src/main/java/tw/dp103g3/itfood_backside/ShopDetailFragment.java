@@ -59,7 +59,7 @@ public class ShopDetailFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
         Bundle bundle = getArguments();
         if (bundle == null || bundle.getSerializable("shop") == null) {
-            Common.showToast(activity, R.string.textNoMembersFound);
+            Common.ShowToast(activity, R.string.textNoMembersFound);
             navController.popBackStack();
             return;
         }
@@ -67,7 +67,7 @@ public class ShopDetailFragment extends Fragment {
         showShop();
     }
     private void showShop() {
-        String url = Common.URL_SERVER + "ShopServlet";
+        String url = Common.URL + "ShopServlet";
         int id = shop.getId();
         int imageSize = getResources().getDisplayMetrics().widthPixels / 3;
         Bitmap bitmap = null;
