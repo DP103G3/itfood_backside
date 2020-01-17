@@ -16,6 +16,7 @@ import tw.dp103g3.itfood_backside.R;
 public class MainPageActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

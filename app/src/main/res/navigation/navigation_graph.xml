@@ -37,12 +37,11 @@
         android:id="@+id/memberDetailFragment"
         android:name="tw.dp103g3.itfood_backside.member.MemberDetailFragment"
         android:label="fragment_member_detail"
-        tools:layout="@layout/fragment_member_detail" />
-    <fragment
-        android:id="@+id/memberUpdateFragment"
-        android:name="tw.dp103g3.itfood_backside.member.MemberUpdateFragment"
-        android:label="fragment_member_update"
-        tools:layout="@layout/fragment_member_update" />
+        tools:layout="@layout/fragment_member_detail" >
+        <action
+            android:id="@+id/action_memberDetailFragment_self"
+            app:destination="@id/memberDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shopUpdateFragment"
         android:name="tw.dp103g3.itfood_backside.shop.ShopUpdateFragment"
@@ -53,4 +52,50 @@
         android:name="tw.dp103g3.itfood_backside.shop.ShopDetailFragment"
         android:label="fragment_shop_detail"
         tools:layout="@layout/fragment_shop_detail" />
+    <fragment
+        android:id="@+id/memberUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.member_update.MemberUpdateFragment"
+        android:label="fragment_member_update"
+        tools:layout="@layout/fragment_member_update" >
+        <action
+            android:id="@+id/action_memberUpdateFragment_to_memberNameUpdateFragment"
+            app:destination="@id/memberNameUpdateFragment" />
+        <action
+            android:id="@+id/action_memberUpdateFragment_to_memberPhoneUpdateFragment"
+            app:destination="@id/memberPhoneUpdateFragment" />
+        <action
+            android:id="@+id/action_memberUpdateFragment_to_memberEmailUpdateFragment"
+            app:destination="@id/memberEmailUpdateFragment" />
+        <action
+            android:id="@+id/action_memberUpdateFragment_to_memberAddressUpdateFragment"
+            app:destination="@id/memberAddressUpdateFragment" />
+        <action
+            android:id="@+id/action_memberUpdateFragment_to_memberCardUpdateFragment2"
+            app:destination="@id/memberCardUpdateFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberNameUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.member_update.MemberNameUpdateFragment"
+        android:label="fragment_member_name_update"
+        tools:layout="@layout/fragment_member_name_update" />
+    <fragment
+        android:id="@+id/memberPhoneUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.member_update.MemberPhoneUpdateFragment"
+        android:label="fragment_member_phone_update"
+        tools:layout="@layout/fragment_member_phone_update" />
+    <fragment
+        android:id="@+id/memberEmailUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.member_update.MemberEmailUpdateFragment"
+        android:label="fragment_member_email_update"
+        tools:layout="@layout/fragment_member_email_update" />
+    <fragment
+        android:id="@+id/memberAddressUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.member_update.MemberAddressUpdateFragment"
+        android:label="fragment_member_address_update"
+        tools:layout="@layout/fragment_member_address_update" />
+    <fragment
+        android:id="@+id/memberCardUpdateFragment2"
+        android:name="tw.dp103g3.itfood_backside.member_update.MemberCardUpdateFragment"
+        android:label="fragment_member_card_update"
+        tools:layout="@layout/fragment_member_card_update" />
 </navigation>

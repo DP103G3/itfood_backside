@@ -7,6 +7,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.support.v4.media.RatingCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -44,7 +47,8 @@ import tw.dp103g3.itfood_backside.task.ShopImageTask;
 public class ShopManagementFragment extends Fragment {
     private static final String TAG = "TAG_ShopManagementFragment";
     private Activity activity;
-    private RecyclerView rvMember;
+    private MenuItem testmenu;
+    private RecyclerView rvShop;
     private CommonTask shopGetAllTask;
     private CommonTask shopDeleteTask;
     private ShopImageTask shopImageTask;
@@ -71,8 +75,8 @@ public class ShopManagementFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final SearchView searchView = view.findViewById(R.id.searchView);
-        rvMember = view.findViewById(R.id.rvMember);
-        rvMember.setLayoutManager(new LinearLayoutManager(activity));
+        rvShop = view.findViewById(R.id.rvShop);
+        rvShop.setLayoutManager(new LinearLayoutManager(activity));
         tvShowAll = view.findViewById(R.id.tvShowAll);
         tvLapse = view.findViewById(R.id.tvLapse);
         tvEffective = view.findViewById(R.id.tvEffective);
@@ -88,7 +92,7 @@ public class ShopManagementFragment extends Fragment {
                 // 如果搜尋條件為空字串，就顯示原始資料；否則就顯示搜尋後結果
                 if (newText.isEmpty()) {
                     showShops(shops);
-                    tvListTitle.setText("所有商家");
+                    tvListTitle.setText("所有店家");
                     tvShowAll.setTextColor(Color.RED);
                     tvEffective.setTextColor(Color.BLACK);
                     tvLapse.setTextColor(Color.BLACK);
@@ -123,7 +127,7 @@ public class ShopManagementFragment extends Fragment {
                 tvLapse.setTextColor(Color.BLACK);
                 searchView.setQuery("",false);
                 showShops(shops);
-                tvListTitle.setText("所有商家");
+                tvListTitle.setText("所有店家");
             }
         });
 
@@ -135,15 +139,14 @@ public class ShopManagementFragment extends Fragment {
                 tvEffective.setTextColor(Color.BLACK);
                 tvShowAll.setTextColor(Color.BLACK);
 
-                String lapse = "已上架";
                 List<Shop> lapseShops = new ArrayList<>();
                 for (Shop shop : shops) {
-                    if (shop.getState().toUpperCase().contains(lapse.toUpperCase())) {
+                    if (shop.getState() == 1) {
                         lapseShops.add(shop);
                     }
                 }
                 showShops(lapseShops);
-                tvListTitle.setText(lapse+"商家");
+                tvListTitle.setText("已上架店家");
             }
         });
 
@@ -153,15 +156,15 @@ public class ShopManagementFragment extends Fragment {
                 tvEffective.setTextColor(Color.RED);
                 tvLapse.setTextColor(Color.BLACK);
                 tvShowAll.setTextColor(Color.BLACK);
-                String effective = "未上架/下架";
+
                 List<Shop> lapseShops = new ArrayList<>();
                 for (Shop shop : shops) {
-                    if (shop.getState().toUpperCase().contains(effective.toUpperCase())) {
+                    if (shop.getState() == 0) {
                         lapseShops.add(shop);
                     }
                 }
                 showShops(lapseShops);
-                tvListTitle.setText(effective+"商家");
+                tvListTitle.setText("未上架/下架店家");
             }
         });
 
@@ -196,10 +199,10 @@ public class ShopManagementFragment extends Fragment {
             Common.ShowToast(activity, R.string.textNoMembersFound);
 
         }
-        ShopManagementFragment.ShopAdapter shopAdapter = (ShopManagementFragment.ShopAdapter) rvMember.getAdapter();
+        ShopManagementFragment.ShopAdapter shopAdapter = (ShopManagementFragment.ShopAdapter) rvShop.getAdapter();
         // 如果memberAdapter不存在就建立新的，否則續用舊有的
         if (shopAdapter == null) {
-            rvMember.setAdapter(new ShopManagementFragment.ShopAdapter(activity, shops));
+            rvShop.setAdapter(new ShopManagementFragment.ShopAdapter(activity, shops));
         } else {
             shopAdapter.setShops(shops);
             shopAdapter.notifyDataSetChanged();
@@ -223,16 +226,16 @@ public class ShopManagementFragment extends Fragment {
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
-            ImageView ivMember;
-            TextView tvMemberName, tvMemberPhone, tvMemberEmail, tvMemberState;
+            ImageView ivShop;
+            TextView tvShopName, tvShopPhone, tvShopEmail, tvShopState;
 
             MyViewHolder(View itemView) {
                 super(itemView);
-                ivMember = itemView.findViewById(R.id.ivMember);
-                tvMemberName = itemView.findViewById(R.id.tvMemberName);
-                tvMemberPhone = itemView.findViewById(R.id.tvMemberPhone);
-                tvMemberEmail = itemView.findViewById(R.id.tvMemberEmail);
-                tvMemberState = itemView.findViewById(R.id.tvMemberState);
+                ivShop = itemView.findViewById(R.id.ivShop);
+                tvShopName = itemView.findViewById(R.id.tvShopName);
+                tvShopPhone = itemView.findViewById(R.id.tvShopPhone);
+                tvShopEmail = itemView.findViewById(R.id.tvShopEmail);
+                tvShopState = itemView.findViewById(R.id.tvShopState);
             }
         }
 
@@ -244,21 +247,27 @@ public class ShopManagementFragment extends Fragment {
         @NonNull
         @Override
         public ShopManagementFragment.ShopAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = layoutInflater.inflate(R.layout.item_view_member, parent, false);
+            View itemView = layoutInflater.inflate(R.layout.item_view_shop, parent, false);
             return new ShopManagementFragment.ShopAdapter.MyViewHolder(itemView);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ShopManagementFragment.ShopAdapter.MyViewHolder myViewHolder, int position) {
             final Shop shop = shops.get(position);
-            String url = Url.URL + "ShopServlet";
+            String url = Url.URL + "/ShopServlet";
             int id = shop.getId();
-            shopImageTask = new ShopImageTask(url, id, imageSize, myViewHolder.ivMember);
+            shopImageTask = new ShopImageTask(url, id, imageSize, myViewHolder.ivShop);
             shopImageTask.execute();
-            myViewHolder.tvMemberState.setText(shop.getState());
-            myViewHolder.tvMemberName.setText(shop.getName());
-            myViewHolder.tvMemberPhone.setText(shop.getTax());
-            myViewHolder.tvMemberEmail.setText(shop.getEmail());
+            if (shop.getState() == 0){
+                myViewHolder.tvShopState.setText("未上架/下架");
+                myViewHolder.tvShopState.setTextColor(Color.RED);
+            }else {
+                myViewHolder.tvShopState.setText("已上架");
+                myViewHolder.tvShopState.setTextColor(Color.BLACK);
+            }
+            myViewHolder.tvShopName.setText(shop.getName());
+            myViewHolder.tvShopPhone.setText(shop.getPhone());
+            myViewHolder.tvShopEmail.setText(shop.getEmail());
             myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -282,34 +291,8 @@ public class ShopManagementFragment extends Fragment {
                                     Bundle bundle = new Bundle();
                                     bundle.putSerializable("shop", shop);
                                     Navigation.findNavController(view)
-                                            .navigate(R.id.action_memberManagementFragment_to_memberUpdateFragment, bundle);
+                                            .navigate(R.id.action_shopManagementFragment_to_shopUpdateFragment, bundle);
                                     break;
-                                case R.id.delete:
-                                    if (Common.networkConnected(activity)) {
-                                        String url = Url.URL + "/ShopServlet";
-                                        JsonObject jsonObject = new JsonObject();
-                                        jsonObject.addProperty("action", "shopDelete");
-                                        jsonObject.addProperty("shopId", shop.getId());
-                                        int count = 0;
-                                        try {
-                                            shopDeleteTask = new CommonTask(url, jsonObject.toString());
-                                            String result = shopDeleteTask.execute().get();
-                                            count = Integer.valueOf(result);
-                                        } catch (Exception e) {
-                                            Log.e(TAG, e.toString());
-                                        }
-                                        if (count == 0) {
-                                            Common.ShowToast(activity, R.string.textDeleteFail);
-                                        } else {
-                                            shops.remove(shop);
-                                            ShopManagementFragment.ShopAdapter.this.notifyDataSetChanged();
-                                            // 外面spots也必須移除選取的spot
-                                            ShopManagementFragment.this.shops.remove(shop);
-                                            Common.ShowToast(activity, R.string.textDeleteSuccess);
-                                        }
-                                    } else {
-                                        Common.ShowToast(activity, R.string.textNoNetwork);
-                                    }
                             }
                             return true;
                         }

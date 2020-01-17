@@ -16,13 +16,15 @@
         android:layout_height="100dp">
 
         <ImageView
-            android:id="@+id/ivMember"
+            android:id="@+id/ivShop"
             android:layout_width="200px"
             android:layout_height="200px"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:src="@drawable/no_image"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
@@ -31,41 +33,42 @@
             android:id="@+id/tvNameTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@id/ivMember"
-            android:text="會員名稱："
-            card_view:layout_constraintBottom_toTopOf="@+id/tvMemberPhone"
-            card_view:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ivShop"
+            android:text="店家名稱："
+            card_view:layout_constraintBottom_toTopOf="@+id/tvShopPhone"
+            card_view:layout_constraintStart_toEndOf="@+id/ivShop" />
 
         <TextView
-            android:id="@+id/tvMemberName"
+            android:id="@+id/tvShopName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/tvNameTitle"
-            android:text="Member Name"
+            android:text="Shop Name"
             android:textColor="#000000"
             android:textSize="16sp"
-            card_view:layout_constraintBottom_toTopOf="@+id/tvMemberPhone"
+            card_view:layout_constraintBottom_toTopOf="@+id/tvShopPhone"
             card_view:layout_constraintStart_toEndOf="@+id/tvNameTitle" />
 
         <TextView
             android:id="@+id/tvPhoneTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ivMember"
-            android:text="會員電話："
-            card_view:layout_constraintStart_toStartOf="@+id/tvNameTitle"
-            card_view:layout_constraintTop_toBottomOf="@+id/tvNameTitle" />
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ivShop"
+            android:text="店家電話："
+            card_view:layout_constraintTop_toBottomOf="@+id/tvNameTitle"
+            card_view:layout_constraintStart_toEndOf="@+id/ivShop" />
 
         <TextView
-            android:id="@+id/tvMemberPhone"
+            android:id="@+id/tvShopPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvMemberName"
-            android:layout_alignStart="@id/tvMemberName"
+            android:layout_below="@id/tvShopName"
+            android:layout_alignStart="@id/tvShopName"
             android:layout_marginStart="8dp"
-            android:text="Member Phone"
+            android:text="Shop Phone"
             android:textColor="#000000"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/tvPhoneTitle"
@@ -75,42 +78,43 @@
             android:id="@+id/tvEmailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ivMember"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/ivShop"
             android:text="電子信箱："
-            card_view:layout_constraintStart_toStartOf="@+id/tvNameTitle"
-            card_view:layout_constraintTop_toBottomOf="@+id/tvPhoneTitle" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tvPhoneTitle"
+            card_view:layout_constraintStart_toEndOf="@+id/ivShop" />
 
         <TextView
-            android:id="@+id/tvMemberEmail"
+            android:id="@+id/tvShopEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvMemberPhone"
-            android:layout_alignStart="@id/tvMemberName"
+            android:layout_below="@id/tvShopPhone"
+            android:layout_alignStart="@id/tvShopName"
             android:layout_marginStart="8dp"
             android:textColor="#000000"
-            android:text="Member Email"
+            android:text="Shop Email"
             card_view:layout_constraintStart_toEndOf="@+id/tvEmailTitle"
-            card_view:layout_constraintTop_toBottomOf="@+id/tvMemberPhone" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tvShopPhone" />
 
         <TextView
-            android:id="@+id/tvMemberStateTitle"
+            android:id="@+id/tvShopStateTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="狀態："
-            card_view:layout_constraintEnd_toStartOf="@+id/tvMemberState"
+            card_view:layout_constraintEnd_toStartOf="@+id/tvShopState"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvMemberState"
+            android:id="@+id/tvShopState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Member State"
+            android:text="Shop State"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvMemberId"
+            android:id="@+id/tvShopId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"

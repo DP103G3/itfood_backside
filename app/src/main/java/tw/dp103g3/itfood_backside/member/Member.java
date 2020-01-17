@@ -25,6 +25,31 @@ public class Member implements Serializable {
 		this.mem_joindate = mem_joindate;
 		this.mem_suspendtime = mem_suspendtime;
 		this.mem_state = mem_state;
+	}
+
+	public void Update(int mem_id, String mem_name, String mem_password, String mem_email, String mem_phone, int mem_state) {
+
+		this.mem_id = mem_id;
+		this.mem_name = mem_name;
+		this.mem_password = mem_password;
+		this.mem_email = mem_email;
+		this.mem_phone = mem_phone;
+		this.mem_state = mem_state;
+	}
+
+	public void Account(int mem_id, int mem_state) {
+		this.mem_id = mem_id;
+		this.mem_state = mem_state;
+	}
+
+	public void UpdateName(int mem_id, String mem_name){
+		this.mem_id = mem_id;
+		this.mem_name = mem_name;
+
+	}
+	public void UpdatePhone(int mem_id, String mem_phone){
+		this.mem_id = mem_id;
+		this.mem_phone = mem_phone;
 
 	}
 
@@ -84,14 +109,8 @@ public class Member implements Serializable {
 		this.mem_suspendtime = mem_suspendtime;
 	}
 
-	public String getMemState() {
-		if(mem_state == 1){
-			return "有效";
-		}else if(mem_state == 0){
-			return "停權";
-		}else {
-			return "Error";
-		}
+	public int getMemState() {
+		return mem_state;
 	}
 
 	public void setMemState(int mem_state) {

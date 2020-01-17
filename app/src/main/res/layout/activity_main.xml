@@ -13,5 +13,7 @@
     android:id="@+id/btLogin"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Login"/>
+    android:text="Login"
+    android:layout_marginBottom="20dp"/>
+
 </LinearLayout>

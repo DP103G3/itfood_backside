@@ -2,6 +2,7 @@ package tw.dp103g3.itfood_backside.shop;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import tw.dp103g3.itfood_backside.Common;
@@ -26,9 +28,11 @@ import tw.dp103g3.itfood_backside.task.ShopImageTask;
 public class ShopDetailFragment extends Fragment {
     private Activity activity;
     private final static String TAG = "TAG_ShopDetailsFragment";
-    private ImageView ivMember;
-    private TextView tvMemberId, tvMemberState, tvMemberName,tvMemberPhone, tvMemberEmail, tvMemberJoinDate;
+    private ImageView ivShop;
+    private TextView tvShopId, tvShopState, tvShopName,tvShopPhone, tvShopEmail, tvShopJoinDate
+            , tvShopAddress, tvShopTax, tvShopArea, tvShopInfo;
     private Shop shop;
+    private Switch swShopState;
 
 
     @Override
@@ -49,13 +53,18 @@ public class ShopDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ivMember = view.findViewById(R.id.ivShop);
-        tvMemberId = view.findViewById(R.id.tvShopId);
-        tvMemberState = view.findViewById(R.id.tvShopState);
-        tvMemberName = view.findViewById(R.id.tvShopName);
-        tvMemberPhone = view.findViewById(R.id.tvShopPhone);
-        tvMemberEmail = view.findViewById(R.id.tvShopEmail);
-        tvMemberJoinDate = view.findViewById(R.id.tvShopJoinDate);
+        ivShop = view.findViewById(R.id.ivShop);
+        tvShopId = view.findViewById(R.id.tvShopId);
+        tvShopState = view.findViewById(R.id.tvShopState);
+        tvShopName = view.findViewById(R.id.tvShopName);
+        tvShopPhone = view.findViewById(R.id.tvShopPhone);
+        tvShopEmail = view.findViewById(R.id.tvShopEmail);
+        tvShopJoinDate = view.findViewById(R.id.tvShopJoinDate);
+        tvShopAddress = view.findViewById(R.id.tvShopAddress);
+        tvShopTax = view.findViewById(R.id.tvShopTax);
+        tvShopArea = view.findViewById(R.id.tvShopArea);
+        tvShopInfo = view.findViewById(R.id.tvShopInfo);
+        swShopState = view.findViewById(R.id.swShopState);
 
         final NavController navController = Navigation.findNavController(view);
         Bundle bundle = getArguments();
@@ -68,9 +77,9 @@ public class ShopDetailFragment extends Fragment {
         showShop();
     }
     private void showShop() {
-        String url = Url.URL + "ShopServlet";
+        String url = Url.URL + "/ShopServlet";
         int id = shop.getId();
-        int imageSize = getResources().getDisplayMetrics().widthPixels / 3;
+        int imageSize = getResources().getDisplayMetrics().widthPixels / 2;
         Bitmap bitmap = null;
         try {
             bitmap = new ShopImageTask(url, id, imageSize).execute().get();
@@ -78,17 +87,27 @@ public class ShopDetailFragment extends Fragment {
             Log.e(TAG, e.toString());
         }
         if (bitmap != null) {
-            ivMember.setImageBitmap(bitmap);
+            ivShop.setImageBitmap(bitmap);
         } else {
-            ivMember.setImageResource(R.drawable.no_image);
+            ivShop.setImageResource(R.drawable.no_image);
         }
-        tvMemberId.setText(String.valueOf(shop.getId()));
-        tvMemberState.setText(shop.getState());
-        tvMemberName.setText(shop.getName());
-        tvMemberPhone.setText(shop.getTax());
-        tvMemberEmail.setText(shop.getEmail());
-        tvMemberJoinDate.setText(shop.getJointime());
-
+        tvShopId.setText(String.valueOf(shop.getId()));
+        if(shop.getState() == 0){
+            tvShopState.setText("未上架/下架店家");
+            tvShopState.setTextColor(Color.RED);
+            swShopState.setChecked(false);
+        }else if(shop.getState() == 1){
+            tvShopState.setText("已上架店家");
+            swShopState.setChecked(true);
+        }
+        tvShopName.setText(shop.getName());
+        tvShopPhone.setText(shop.getPhone());
+        tvShopEmail.setText(shop.getEmail());
+        tvShopJoinDate.setText(shop.getJointime());
+        tvShopAddress.setText(shop.getAddress());
+        tvShopTax.setText(shop.getTax());
+        tvShopArea.setText(String.valueOf(shop.getArea()));
+        tvShopInfo.setText(shop.getInfo());
 
     }
 

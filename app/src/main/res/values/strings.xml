@@ -16,4 +16,15 @@
     <string name="textTakePicture">拍張照片</string>
     <string name="textBookName">用戶名稱</string>
     <string name="textShopDetailPageTitle">商家資料</string>
+    <string name="textUpdateFail">UpdateFail</string>
+    <string name="textUpdateSuccess">UpdateSuccess</string>
+    <string name="textMemberUpdateTitle">個人資料</string>
+    <string name="textMemberNameUpdateTitle">修改姓名</string>
+    <string name="textNameIsInvalid">請輸入姓名</string>
+    <string name="textMemberPhoneUpdateTitle">修改電話</string>
+    <string name="textPhoneIsInvalid">Phone Is Invalid</string>
+    <string name="textPhoneError">Insufficient phone number</string>
+    <string name="textMemberEmailUpdateTitle">修改電子信箱</string>
+    <string name="textSuspendedMember">已停權會員</string>
+    <string name="textStartMember">已開通會員</string>
 </resources>

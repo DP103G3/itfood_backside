@@ -1,4 +1,4 @@
-package tw.dp103g3.itfood_backside.member;
+package tw.dp103g3.itfood_backside.member_update;
 
 
 import android.os.Bundle;
@@ -12,11 +12,13 @@ import android.view.ViewGroup;
 import tw.dp103g3.itfood_backside.R;
 
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MemberCardUpdateFragment extends Fragment {
 
-public class MemberUpdateFragment extends Fragment {
 
-
-    public MemberUpdateFragment() {
+    public MemberCardUpdateFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +27,7 @@ public class MemberUpdateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_member_update, container, false);
+        return inflater.inflate(R.layout.fragment_member_card_update, container, false);
     }
 
 }

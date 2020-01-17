@@ -95,6 +95,7 @@ public class MemberManagementFragment extends Fragment {
                             searchMembers.add(member);
                         }
                     }
+
                     showMembers(searchMembers);
                     tvListTitle.setText(null);
                     tvShowAll.setTextColor(Color.BLACK);
@@ -129,15 +130,14 @@ public class MemberManagementFragment extends Fragment {
                 tvEffective.setTextColor(Color.BLACK);
                 tvShowAll.setTextColor(Color.BLACK);
 
-                String lapse = "有效";
                 List<Member> lapseMembers = new ArrayList<>();
                 for (Member member : members) {
-                        if (member.getMemState().toUpperCase().contains(lapse.toUpperCase())) {
+                        if (member.getMemState() == 1) {
                             lapseMembers.add(member);
                         }
                 }
                 showMembers(lapseMembers);
-                tvListTitle.setText(lapse+"會員");
+                tvListTitle.setText("有效會員");
             }
         });
 
@@ -147,15 +147,15 @@ public class MemberManagementFragment extends Fragment {
                 tvEffective.setTextColor(Color.RED);
                 tvLapse.setTextColor(Color.BLACK);
                 tvShowAll.setTextColor(Color.BLACK);
-                String effective = "停權";
+
                 List<Member> lapseMembers = new ArrayList<>();
                 for (Member member : members) {
-                    if (member.getMemState().toUpperCase().contains(effective.toUpperCase())) {
+                    if (member.getMemState() == 0) {
                         lapseMembers.add(member);
                     }
                 }
                 showMembers(lapseMembers);
-                tvListTitle.setText(effective+"會員");
+                tvListTitle.setText("停權會員");
             }
         });
 
@@ -202,13 +202,12 @@ public class MemberManagementFragment extends Fragment {
     private class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MyViewHolder> {
         private LayoutInflater layoutInflater;
         private List<Member> members;
-        private int imageSize;
+
 
         MemberAdapter(Context context, List<Member> members) {
             layoutInflater = LayoutInflater.from(context);
             this.members = members;
-            /* 螢幕寬度除以4當作將圖的尺寸 */
-            imageSize = getResources().getDisplayMetrics().widthPixels / 4;
+
         }
 
         void setMembers(List<Member> members) {
@@ -244,11 +243,14 @@ public class MemberManagementFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
             final Member member = members.get(position);
-            String url = Url.URL + "/MemberServlet";
-            int id = member.getMemId();
-            memberImageTask = new MemberImageTask(url, id, imageSize, myViewHolder.ivMember);
-            memberImageTask.execute();
-            myViewHolder.tvMemberState.setText(member.getMemState());
+
+            if(member.getMemState() == 0){
+                myViewHolder.tvMemberState.setText("停權");
+                myViewHolder.tvMemberState.setTextColor(Color.RED);
+            }else if(member.getMemState() == 1){
+                myViewHolder.tvMemberState.setText("有效");
+                myViewHolder.tvMemberState.setTextColor(Color.BLACK);
+            }
             myViewHolder.tvMemberName.setText(member.getMemName());
             myViewHolder.tvMemberPhone.setText(member.getMemPhone());
             myViewHolder.tvMemberEmail.setText(member.getMemEmail());
@@ -267,7 +269,6 @@ public class MemberManagementFragment extends Fragment {
                     PopupMenu popupMenu = new PopupMenu(activity, view, Gravity.END);
                     popupMenu.inflate(R.menu.popup_menu);
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @SuppressLint("LongLogTag")
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
                             switch (item.getItemId()) {
@@ -277,32 +278,6 @@ public class MemberManagementFragment extends Fragment {
                                     Navigation.findNavController(view)
                                             .navigate(R.id.action_memberManagementFragment_to_memberUpdateFragment, bundle);
                                     break;
-                                case R.id.delete:
-                                    if (Common.networkConnected(activity)) {
-                                        String url = Url.URL + "/MemberServlet";
-                                        JsonObject jsonObject = new JsonObject();
-                                        jsonObject.addProperty("action", "memberDelete");
-                                        jsonObject.addProperty("memberId", member.getMemId());
-                                        int count = 0;
-                                        try {
-                                            memberDeleteTask = new CommonTask(url, jsonObject.toString());
-                                            String result = memberDeleteTask.execute().get();
-                                            count = Integer.valueOf(result);
-                                        } catch (Exception e) {
-                                            Log.e(TAG, e.toString());
-                                        }
-                                        if (count == 0) {
-                                            Common.ShowToast(activity, R.string.textDeleteFail);
-                                        } else {
-                                            members.remove(member);
-                                            MemberAdapter.this.notifyDataSetChanged();
-                                            // 外面spots也必須移除選取的spot
-                                            MemberManagementFragment.this.members.remove(member);
-                                            Common.ShowToast(activity, R.string.textDeleteSuccess);
-                                        }
-                                    } else {
-                                        Common.ShowToast(activity, R.string.textNoNetwork);
-                                    }
                             }
                             return true;
                         }
@@ -311,6 +286,7 @@ public class MemberManagementFragment extends Fragment {
                     return true;
                 }
             });
+
         }
 
     }

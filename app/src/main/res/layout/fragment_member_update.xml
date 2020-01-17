@@ -1,14 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".member.MemberUpdateFragment">
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".member_update.MemberUpdateFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MemberUpdateFragment" />
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
+        android:text="一般資料"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/ivMemberName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/itemMemberName"
+        app:layout_constraintEnd_toEndOf="@+id/itemMemberName"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberName"
+        app:layout_constraintTop_toTopOf="@+id/itemMemberName" />
+
+    <ImageView
+        android:id="@+id/ivMemberPhone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/itemMemberPhone"
+        app:layout_constraintEnd_toEndOf="@+id/itemMemberPhone"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberPhone"
+        app:layout_constraintTop_toTopOf="@+id/itemMemberPhone" />
+
+    <ImageView
+        android:id="@+id/ivMemberEmail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/itemMemberMail"
+        app:layout_constraintEnd_toEndOf="@+id/itemMemberMail"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberMail"
+        app:layout_constraintTop_toTopOf="@+id/itemMemberMail" />
+
+    <ImageView
+        android:id="@+id/ivMemberAddress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/itemMemberAddress"
+        app:layout_constraintEnd_toEndOf="@+id/itemMemberAddress"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberAddress"
+        app:layout_constraintTop_toTopOf="@+id/itemMemberAddress" />
+
+    <ImageView
+        android:id="@+id/ivMemberCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/itemMemberCard"
+        app:layout_constraintEnd_toEndOf="@+id/itemMemberCard"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberCard"
+        app:layout_constraintTop_toTopOf="@+id/itemMemberCard" />
+
+    <LinearLayout
+        android:id="@+id/itemMemberName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="姓名" />
+
+            <TextView
+                android:id="@+id/tvMemberName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Content"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/itemMemberPhone"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberName"
+        app:layout_constraintTop_toBottomOf="@+id/itemMemberName">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="電話" />
+
+            <TextView
+                android:id="@+id/tvMemberPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Content"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/itemMemberMail"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberPhone"
+        app:layout_constraintTop_toBottomOf="@+id/itemMemberPhone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="電子信箱" />
+
+            <TextView
+                android:id="@+id/tvMemberEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Content"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/itemMemberAddress"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberMail"
+        app:layout_constraintTop_toBottomOf="@+id/itemMemberMail">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="收餐地址" />
+
+            <TextView
+                android:id="@+id/tvMemberAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Content"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/itemMemberCard"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        app:layout_constraintStart_toStartOf="@+id/itemMemberAddress"
+        app:layout_constraintTop_toBottomOf="@+id/itemMemberAddress">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="信用卡資訊" />
+
+            <TextView
+                android:id="@+id/tvMemberCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Content"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

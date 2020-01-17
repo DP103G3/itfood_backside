@@ -16,6 +16,7 @@
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingRight="20dp"
             android:iconifiedByDefault="false" />
 
         <LinearLayout
@@ -60,6 +61,7 @@
     android:layout_height="wrap_content"
     android:textSize="20sp"
     android:text="所有會員"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMember"
         android:layout_width="match_parent"
