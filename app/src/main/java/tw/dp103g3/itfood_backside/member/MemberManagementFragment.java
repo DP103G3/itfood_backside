@@ -14,13 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -32,9 +29,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.main.Common;
 import tw.dp103g3.itfood_backside.R;
-import tw.dp103g3.itfood_backside.Url;
+import tw.dp103g3.itfood_backside.main.Url;
 import tw.dp103g3.itfood_backside.task.CommonTask;
 import tw.dp103g3.itfood_backside.task.MemberImageTask;
 
@@ -263,7 +260,7 @@ public class MemberManagementFragment extends Fragment {
                             .navigate(R.id.action_memberManagementFragment_to_memberDetailFragment, bundle);
                 }
             });
-            myViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+         /*   myViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(final View view) {
                     PopupMenu popupMenu = new PopupMenu(activity, view, Gravity.END);
@@ -285,7 +282,7 @@ public class MemberManagementFragment extends Fragment {
                     popupMenu.show();
                     return true;
                 }
-            });
+            });*/
 
         }
 

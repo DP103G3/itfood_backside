@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
     android:padding="10dp"
-    card_view:cardBackgroundColor="#ffdddddd"
+    card_view:cardBackgroundColor="@color/colorItemBackground"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="6dp">
 
@@ -87,8 +87,8 @@
             android:layout_below="@id/tvMemberPhone"
             android:layout_alignStart="@id/tvMemberName"
             android:layout_marginStart="8dp"
-            android:textColor="#000000"
             android:text="Member Email"
+            android:textColor="#000000"
             card_view:layout_constraintStart_toEndOf="@+id/tvEmailTitle"
             card_view:layout_constraintTop_toBottomOf="@+id/tvMemberPhone" />
 

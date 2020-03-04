@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/colorBackground"
     tools:context=".member_update.MemberNameUpdateFragment">
 
     <com.google.android.material.textfield.TextInputLayout

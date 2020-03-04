@@ -44,6 +44,42 @@ public class Shop implements Serializable {
         this.ttrate = ttrate;
     }
 
+    public Shop(int id, String email, String name, String phone, String tax, String address,
+                int area, byte state, String info, String jointime, String suspendtime) {
+        super();
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.tax = tax;
+        this.address = address;
+        this.area = area;
+        this.state = state;
+        this.info = info;
+        this.jointime = jointime;
+        this.suspendtime = suspendtime;
+    }
+
+
+    public void setFields(String name, String phone, String address, double latitude,
+                          double longitude, String tax, int area,  String info) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.tax = tax;
+        this.area = area;
+        this.info = info;
+    }
+
+
+    public void Account(int id, byte state) {
+        this.id = id;
+        this.state = state;
+    }
+
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -141,7 +177,7 @@ public class Shop implements Serializable {
         this.area = area;
     }
 
-    public int getState() {
+    public byte getState() {
       return state;
     }
 

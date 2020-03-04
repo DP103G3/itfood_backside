@@ -7,8 +7,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -16,15 +14,12 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.support.v4.media.RatingCompat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -36,9 +31,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.main.Common;
 import tw.dp103g3.itfood_backside.R;
-import tw.dp103g3.itfood_backside.Url;
+import tw.dp103g3.itfood_backside.main.Url;
 import tw.dp103g3.itfood_backside.task.CommonTask;
 import tw.dp103g3.itfood_backside.task.ShopImageTask;
 
@@ -196,7 +191,7 @@ public class ShopManagementFragment extends Fragment {
 
     private void showShops(List<Shop> shops) {
         if (shops == null || shops.isEmpty()) {
-            Common.ShowToast(activity, R.string.textNoMembersFound);
+            Common.ShowToast(activity, R.string.textNoShopsFound);
 
         }
         ShopManagementFragment.ShopAdapter shopAdapter = (ShopManagementFragment.ShopAdapter) rvShop.getAdapter();
@@ -277,7 +272,7 @@ public class ShopManagementFragment extends Fragment {
                             .navigate(R.id.action_shopManagementFragment_to_shopDetailFragment, bundle);
                 }
             });
-            myViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        /*    myViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(final View view) {
                     PopupMenu popupMenu = new PopupMenu(activity, view, Gravity.END);
@@ -293,6 +288,12 @@ public class ShopManagementFragment extends Fragment {
                                     Navigation.findNavController(view)
                                             .navigate(R.id.action_shopManagementFragment_to_shopUpdateFragment, bundle);
                                     break;
+                                case R.id.dish:
+                                    Bundle bundleDish = new Bundle();
+                                    bundleDish.putSerializable("shop", shop);
+                                    Navigation.findNavController(view)
+                                            .navigate(R.id.action_shopManagementFragment_to_shopDishListFragment, bundleDish);
+                                    break;
                             }
                             return true;
                         }
@@ -300,7 +301,7 @@ public class ShopManagementFragment extends Fragment {
                     popupMenu.show();
                     return true;
                 }
-            });
+            });*/
         }
 
     }

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorBackground"
+android:orientation="vertical"
+tools:context=".delivery.DeliveryDetailFragment">
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbarDeliveryDetail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="?attr/actionBarTheme"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:navigationIcon="@drawable/back"
+    app:title="外送員管理"
+    app:titleTextColor="@color/colorTextOnP" />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/ivDelivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvIdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="外送員編號 : "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDeliveryId"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvIdTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvIdTitle" />
+
+        <TextView
+            android:id="@+id/tvStateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="外送員狀態 : "
+            app:layout_constraintStart_toStartOf="@+id/tvIdTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvIdTitle" />
+
+        <TextView
+            android:id="@+id/tvDeliveryState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvStateTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvStateTitle" />
+
+        <Switch
+            android:id="@+id/swDeliveryState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@+id/tvStateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvStateTitle" />
+
+        <ImageView
+            android:id="@+id/ivButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/swDeliveryState"
+            app:layout_constraintEnd_toEndOf="@+id/swDeliveryState"
+            app:layout_constraintStart_toStartOf="@+id/swDeliveryState"
+            app:layout_constraintTop_toTopOf="@+id/swDeliveryState" />
+
+        <TextView
+            android:id="@+id/tvNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="外送員姓名 : "
+            app:layout_constraintStart_toStartOf="@+id/tvStateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/swDeliveryState" />
+
+        <TextView
+            android:id="@+id/tvDeliveryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvNameTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvNameTitle" />
+
+        <TextView
+            android:id="@+id/tvPhoneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="外送員電話 : "
+            app:layout_constraintStart_toStartOf="@+id/tvNameTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameTitle" />
+
+
+        <TextView
+            android:id="@+id/tvDeliveryPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvPhoneTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvPhoneTitle" />
+
+        <TextView
+            android:id="@+id/tvEmailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="電子信箱 : "
+            app:layout_constraintEnd_toEndOf="@+id/tvPhoneTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhoneTitle" />
+
+        <TextView
+            android:id="@+id/tvDeliveryEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvEmailTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvEmailTitle" />
+
+
+        <TextView
+            android:id="@+id/tvJoinDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="加入日期 : "
+            app:layout_constraintEnd_toEndOf="@+id/tvEmailTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmailTitle" />
+
+        <TextView
+            android:id="@+id/tvDeliveryJoinDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvJoinDateTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvJoinDateTitle" />
+
+
+        <TextView
+            android:id="@+id/tvIdentityIdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="身分證號 : "
+            app:layout_constraintEnd_toEndOf="@+id/tvJoinDateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvJoinDateTitle" />
+
+        <TextView
+            android:id="@+id/tvDeliveryIdentityId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvIdentityIdTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvIdentityIdTitle" />
+
+        <TextView
+            android:id="@+id/tvAreaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="外送員區域 : "
+            app:layout_constraintStart_toStartOf="@+id/tvPhoneTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvIdentityIdTitle" />
+
+        <TextView
+            android:id="@+id/tvDeliveryArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvAreaTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvAreaTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+</LinearLayout>

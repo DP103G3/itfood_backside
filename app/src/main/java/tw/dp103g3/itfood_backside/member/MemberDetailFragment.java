@@ -1,20 +1,17 @@
 package tw.dp103g3.itfood_backside.member;
 
-import android.accounts.Account;
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,11 +25,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
-import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.main.Common;
 import tw.dp103g3.itfood_backside.R;
-import tw.dp103g3.itfood_backside.Url;
+import tw.dp103g3.itfood_backside.main.Url;
 import tw.dp103g3.itfood_backside.task.CommonTask;
-import tw.dp103g3.itfood_backside.task.MemberImageTask;
 
 
 public class MemberDetailFragment extends Fragment {
@@ -44,6 +40,7 @@ public class MemberDetailFragment extends Fragment {
     private TextView tvMemberId, tvMemberState, tvMemberName, tvMemberPhone, tvMemberEmail, tvMemberJoinDate;
     private Member member,memberDetail,account;
     private Switch swMemberState;
+    private Toolbar toolbarMemberDetail;
 
 
     @Override
@@ -79,7 +76,9 @@ public class MemberDetailFragment extends Fragment {
         tvMemberEmail = view.findViewById(R.id.tvMemberEmail);
         tvMemberJoinDate = view.findViewById(R.id.tvMemberJoinDate);
         swMemberState = view.findViewById(R.id.swMemberState);
+        toolbarMemberDetail = view.findViewById(R.id.toolbarMemberDetail);
 
+        toolbarMemberDetail.setNavigationOnClickListener(v -> Navigation.findNavController(v).popBackStack());
         swMemberState.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 showMember();

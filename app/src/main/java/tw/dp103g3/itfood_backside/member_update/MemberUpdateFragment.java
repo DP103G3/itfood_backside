@@ -4,20 +4,14 @@ package tw.dp103g3.itfood_backside.member_update;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.icu.util.Output;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,25 +21,18 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.List;
-
-import tw.dp103g3.itfood_backside.Address;
-import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.main.Common;
 import tw.dp103g3.itfood_backside.R;
-import tw.dp103g3.itfood_backside.Url;
+import tw.dp103g3.itfood_backside.main.Url;
 import tw.dp103g3.itfood_backside.member.Member;
 import tw.dp103g3.itfood_backside.task.CommonTask;
-import tw.dp103g3.itfood_backside.task.MemberImageTask;
 
 
 public class MemberUpdateFragment extends Fragment {
     private static final String TAG = "TAG_MemberUpdateFragment";
     private Activity activity;
     private Member memberId, memberInfo;
-    private Address memberAddress;
     private CommonTask memberGetAllTask;
     private CommonTask memberDeleteTask;
     private TextView tvMemberName ,tvMemberPhone ,tvMemberEmail ,tvMemberAddress ,tvMemberCard;
@@ -72,14 +59,14 @@ public class MemberUpdateFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         tvMemberName = view.findViewById(R.id.tvMemberName);
         tvMemberPhone = view.findViewById(R.id.tvMemberPhone);
-        tvMemberEmail = view.findViewById(R.id.tvMemberEmail);
-        tvMemberAddress = view.findViewById(R.id.tvMemberAddress);
-        tvMemberCard = view.findViewById(R.id.tvMemberCard);
+        //tvMemberEmail = view.findViewById(R.id.tvMemberEmail);
+        //tvMemberAddress = view.findViewById(R.id.tvMemberAddress);
+        //tvMemberCard = view.findViewById(R.id.tvMemberCard);
         ivMemberName = view.findViewById(R.id.ivMemberName);
         ivMemberPhone = view.findViewById(R.id.ivMemberPhone);
-        ivMemberEmail = view.findViewById(R.id.ivMemberEmail);
-        ivMemberAddress = view.findViewById(R.id.ivMemberAddress);
-        ivMemberCard = view.findViewById(R.id.ivMemberCard);
+        //ivMemberEmail = view.findViewById(R.id.ivMemberEmail);
+        //ivMemberAddress = view.findViewById(R.id.ivMemberAddress);
+        //ivMemberCard = view.findViewById(R.id.ivMemberCard);
 
         final NavController navController = Navigation.findNavController(view);
         Bundle bundle = getArguments();
@@ -117,7 +104,7 @@ public class MemberUpdateFragment extends Fragment {
             Common.ShowToast(activity, R.string.textNoNetwork);
         }
 
-        memberAddress = null;
+        /*memberAddress = null;
         if (Common.networkConnected(activity)) {
             String url = Url.URL + "/AddressServlet";
             JsonObject jsonObject = new JsonObject();
@@ -134,16 +121,16 @@ public class MemberUpdateFragment extends Fragment {
             }
         } else {
             Common.ShowToast(activity, R.string.textNoNetwork);
-        }
+        }*/
 
         tvMemberName.setText(memberInfo.getMemName());
         tvMemberPhone.setText(memberInfo.getMemPhone());
-        tvMemberEmail.setText(memberInfo.getMemEmail());
-        if (memberAddress == null){
+        //tvMemberEmail.setText(memberInfo.getMemEmail());
+        /*if (memberAddress == null){
 
         }else {
             tvMemberAddress.setText(memberAddress.getInfo());
-        }
+        }*/
 
         //tvMemberCard.setText(memberInfo.getMemEmail());
         ivMemberName.setOnClickListener(new View.OnClickListener() {
@@ -166,7 +153,7 @@ public class MemberUpdateFragment extends Fragment {
 
             }
         });
-        ivMemberEmail.setOnClickListener(new View.OnClickListener() {
+        /*ivMemberEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
                 Bundle bundle = new Bundle();
@@ -189,7 +176,7 @@ public class MemberUpdateFragment extends Fragment {
 
 
             }
-        });
+        });*/
 
     }
 

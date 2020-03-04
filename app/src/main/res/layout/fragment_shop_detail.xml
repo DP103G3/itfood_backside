@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".member.MemberDetailFragment">
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    tools:context=".shop.ShopDetailFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarShopDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back"
+        app:title="店家管理"
+        app:titleTextColor="@color/colorTextOnP" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -90,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="店家店名 : "
+                android:text="@string/textShopName"
                 app:layout_constraintStart_toStartOf="@+id/tvStateTitle"
                 app:layout_constraintTop_toBottomOf="@+id/swShopState" />
 
@@ -174,11 +189,13 @@
 
             <TextView
                 android:id="@+id/tvShopAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
                 android:textColor="#0000ff"
                 android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvAddressTitle"
                 app:layout_constraintTop_toTopOf="@+id/tvAddressTitle" />
 
@@ -189,7 +206,7 @@
                 android:layout_marginTop="24dp"
                 android:text="店家統編 : "
                 app:layout_constraintStart_toStartOf="@+id/tvAddressTitle"
-                app:layout_constraintTop_toBottomOf="@+id/tvAddressTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/tvShopAddress" />
 
             <TextView
                 android:id="@+id/tvShopTax"
@@ -240,9 +257,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvInfoTitle"
                 app:layout_constraintTop_toTopOf="@+id/tvInfoTitle" />
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

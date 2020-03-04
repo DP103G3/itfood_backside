@@ -15,12 +15,19 @@
         <action
             android:id="@+id/action_shopManagementFragment_to_shopDetailFragment"
             app:destination="@id/shopDetailFragment" />
+        <action
+            android:id="@+id/action_shopManagementFragment_to_shopDishListFragment"
+            app:destination="@id/shopDishListFragment" />
     </fragment>
     <fragment
         android:id="@+id/deliveryManagementFragment"
         android:name="tw.dp103g3.itfood_backside.delivery.DeliveryManagementFragment"
         android:label="fragment_delivery_management"
-        tools:layout="@layout/fragment_delivery_management" />
+        tools:layout="@layout/fragment_delivery_management" >
+        <action
+            android:id="@+id/action_deliveryManagementFragment_to_deliveryDetailFragment"
+            app:destination="@id/deliveryDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/memberManagementFragment"
         android:name="tw.dp103g3.itfood_backside.member.MemberManagementFragment"
@@ -37,14 +44,10 @@
         android:id="@+id/memberDetailFragment"
         android:name="tw.dp103g3.itfood_backside.member.MemberDetailFragment"
         android:label="fragment_member_detail"
-        tools:layout="@layout/fragment_member_detail" >
-        <action
-            android:id="@+id/action_memberDetailFragment_self"
-            app:destination="@id/memberDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_member_detail" />
     <fragment
         android:id="@+id/shopUpdateFragment"
-        android:name="tw.dp103g3.itfood_backside.shop.ShopUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.shop_update.ShopUpdateFragment"
         android:label="fragment_shop_update"
         tools:layout="@layout/fragment_shop_update" />
     <fragment
@@ -98,4 +101,40 @@
         android:name="tw.dp103g3.itfood_backside.member_update.MemberCardUpdateFragment"
         android:label="fragment_member_card_update"
         tools:layout="@layout/fragment_member_card_update" />
+    <fragment
+        android:id="@+id/shopDishListFragment"
+        android:name="tw.dp103g3.itfood_backside.shop_update.ShopDishListFragment"
+        android:label="fragment_shop_dish_list"
+        tools:layout="@layout/fragment_shop_dish_list" >
+        <action
+            android:id="@+id/action_shopDishListFragment_to_shopDishDetailFragment"
+            app:destination="@id/shopDishDetailFragment" />
+        <action
+            android:id="@+id/action_shopDishListFragment_to_shopAddDishFragment"
+            app:destination="@id/shopAddDishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopDishDetailFragment"
+        android:name="tw.dp103g3.itfood_backside.shop_update.ShopDishDetailFragment"
+        android:label="fragment_shop_dish_detail"
+        tools:layout="@layout/fragment_shop_dish_detail" >
+        <action
+            android:id="@+id/action_shopDishDetailFragment_to_shopDishUpdateFragment"
+            app:destination="@id/shopDishUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopAddDishFragment"
+        android:name="tw.dp103g3.itfood_backside.shop_update.ShopAddDishFragment"
+        android:label="fragment_shop_add_dish"
+        tools:layout="@layout/fragment_shop_add_dish" />
+    <fragment
+        android:id="@+id/shopDishUpdateFragment"
+        android:name="tw.dp103g3.itfood_backside.shop_update.ShopDishUpdateFragment"
+        android:label="fragment_shop_dish_update"
+        tools:layout="@layout/fragment_shop_dish_update" />
+    <fragment
+        android:id="@+id/deliveryDetailFragment"
+        android:name="tw.dp103g3.itfood_backside.delivery.DeliveryDetailFragment"
+        android:label="fragment_delivery_detail"
+        tools:layout="@layout/fragment_delivery_detail" />
 </navigation>

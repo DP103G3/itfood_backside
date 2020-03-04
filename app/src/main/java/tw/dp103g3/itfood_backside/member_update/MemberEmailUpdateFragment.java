@@ -22,9 +22,9 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import tw.dp103g3.itfood_backside.Common;
+import tw.dp103g3.itfood_backside.main.Common;
 import tw.dp103g3.itfood_backside.R;
-import tw.dp103g3.itfood_backside.Url;
+import tw.dp103g3.itfood_backside.main.Url;
 import tw.dp103g3.itfood_backside.member.Member;
 import tw.dp103g3.itfood_backside.task.CommonTask;
 
