@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         tvAdminInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etEmail.setText("administrator@gmail.com");
-                etPassword.setText("123456789");
+                etEmail.setText(R.string.adminEmailInput);
+                etPassword.setText(R.string.adminPasswordInput);
             }
         });
     }
