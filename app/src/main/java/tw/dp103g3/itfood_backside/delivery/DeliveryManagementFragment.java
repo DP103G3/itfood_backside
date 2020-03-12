@@ -153,7 +153,7 @@ public class DeliveryManagementFragment extends Fragment {
 
                 List<Delivery> lapseDeliverys = new ArrayList<>();
                 for (Delivery delivery : deliverys) {
-                    if (delivery.getDelState() == 2) {
+                    if (delivery.getDelState() == 0) {
                         lapseDeliverys.add(delivery);
                     }
                 }
@@ -172,7 +172,7 @@ public class DeliveryManagementFragment extends Fragment {
 
                 List<Delivery> lapseDeliverys = new ArrayList<>();
                 for (Delivery delivery : deliverys) {
-                    if (delivery.getDelState() == 0) {
+                    if (delivery.getDelState() == 2) {
                         lapseDeliverys.add(delivery);
                     }
                 }
@@ -266,13 +266,13 @@ public class DeliveryManagementFragment extends Fragment {
         public void onBindViewHolder(@NonNull DeliveryManagementFragment.DeliveryAdapter.MyViewHolder myViewHolder, int position) {
             final Delivery delivery = deliverys.get(position);
 
-            if(delivery.getDelState() == 0){
+            if(delivery.getDelState() == 2){
                 myViewHolder.tvDeliveryState.setText("離職");
                 myViewHolder.tvDeliveryState.setTextColor(Color.RED);
             }else if(delivery.getDelState() == 1){
                 myViewHolder.tvDeliveryState.setText("有效");
                 myViewHolder.tvDeliveryState.setTextColor(Color.BLACK);
-            }else if(delivery.getDelState() == 2){
+            }else if(delivery.getDelState() == 0){
                 myViewHolder.tvDeliveryState.setText("停權");
                 myViewHolder.tvDeliveryState.setTextColor(Color.RED);
             }

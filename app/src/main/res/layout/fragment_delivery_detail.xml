@@ -8,21 +8,48 @@ android:background="@color/colorBackground"
 android:orientation="vertical"
 tools:context=".delivery.DeliveryDetailFragment">
 
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbarDeliveryDetail"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
-    android:minHeight="?attr/actionBarSize"
-    android:theme="?attr/actionBarTheme"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:navigationIcon="@drawable/back"
-    app:title="外送員管理"
-    app:titleTextColor="@color/colorTextOnP" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDeliveryDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back"
+        app:title="外送員管理"
+        app:titleTextColor="@color/colorTextOnP">
 
-<ScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+
+            <Switch
+                android:id="@+id/swDeliveryLeaveState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp"
+                android:text="在職"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivButtonLeave"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/swDeliveryLeaveState"
+                app:layout_constraintEnd_toEndOf="@+id/swDeliveryLeaveState"
+                app:layout_constraintStart_toStartOf="@+id/swDeliveryLeaveState"
+                app:layout_constraintTop_toTopOf="@+id/swDeliveryLeaveState" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -36,7 +63,6 @@ tools:context=".delivery.DeliveryDetailFragment">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -70,25 +96,16 @@ tools:context=".delivery.DeliveryDetailFragment">
             app:layout_constraintStart_toStartOf="@+id/tvIdTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvIdTitle" />
 
-        <TextView
-            android:id="@+id/tvDeliveryState"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textColor="#0000ff"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/tvStateTitle"
-            app:layout_constraintTop_toTopOf="@+id/tvStateTitle" />
 
         <Switch
             android:id="@+id/swDeliveryState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:text=""
+            android:layout_marginStart="16dp"
+            android:text="停權"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/tvStateTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvStateTitle" />
+            app:layout_constraintTop_toTopOf="@+id/tvStateTitle" />
 
         <ImageView
             android:id="@+id/ivButton"
