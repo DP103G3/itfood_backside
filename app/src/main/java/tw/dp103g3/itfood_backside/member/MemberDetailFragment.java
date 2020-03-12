@@ -130,13 +130,13 @@ public class MemberDetailFragment extends Fragment {
 
         tvMemberId.setText(String.valueOf(memberDetail.getMemId()));
         if (memberDetail.getMemState() == 0) {
-            tvMemberState.setText("停權會員");
-            tvMemberState.setTextColor(Color.RED);
+            swMemberState.setText("停權會員");
+            swMemberState.setTextColor(Color.RED);
             swMemberState.setChecked(false);
         } else if (memberDetail.getMemState() == 1) {
-            tvMemberState.setText("有效會員");
+            swMemberState.setText("有效會員");
             swMemberState.setChecked(true);
-            tvMemberState.setTextColor(Color.BLUE);
+            swMemberState.setTextColor(Color.BLUE);
         }
 
         tvMemberName.setText(memberDetail.getMemName());
