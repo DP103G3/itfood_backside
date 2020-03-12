@@ -85,4 +85,6 @@
     <string name="textNoDeliverysFound">No Deliverys Found !</string>
     <string name="adminEmailInput">administrator@gmail.com</string>
     <string name="adminPasswordInput">123456789</string>
+    <string name="textStartDeliveryOk">外送員已復職</string>
+    <string name="textLeaveDelivery">外送員已離職</string>
 </resources>
