@@ -145,13 +145,13 @@ public class ShopDetailFragment extends Fragment {
 
         tvShopId.setText(String.valueOf(shopDetail.getId()));
         if(shopDetail.getState() == 0){
-            tvShopState.setText("未上架/下架店家");
-            tvShopState.setTextColor(Color.RED);
+            swShopState.setText("未上架/下架店家");
+            swShopState.setTextColor(Color.RED);
             swShopState.setChecked(false);
         }else if(shopDetail.getState() == 1){
-            tvShopState.setText("已上架店家");
+            swShopState.setText("已上架店家");
             swShopState.setChecked(true);
-            tvShopState.setTextColor(Color.BLUE);
+            swShopState.setTextColor(Color.BLUE);
         }
         tvShopName.setText(shopDetail.getName());
         tvShopPhone.setText(shopDetail.getPhone());
